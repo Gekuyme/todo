@@ -1,0 +1,22 @@
+<script setup>
+import { computed } from "vue";
+
+const defineColor = defineProps({
+  color: String,
+});
+
+let color = computed(() => "background-color:" + defineColor.color + ";");
+</script>
+
+<template>
+  <div class="circle" :style="color"></div>
+</template>
+
+<style scoped>
+.circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  border: 0px;
+}
+</style>
