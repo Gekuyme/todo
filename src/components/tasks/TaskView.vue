@@ -47,6 +47,7 @@ const data = computed(() => dataProps);
 .task_item {
   display: flex;
   flex-basis: 50%;
+  align-items: center;
   gap: 10px;
 }
 .list_item {

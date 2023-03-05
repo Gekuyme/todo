@@ -3,11 +3,14 @@ import { ref } from "vue";
 
 let color = ref("cl_passive");
 
-function checkClick() {
+function changeColor() {
   color.value != "cl_active"
     ? (color.value = "cl_active")
     : (color.value = "cl_passive");
 }
+defineExpose({
+  changeColor
+})
 </script>
 <template>
   <svg
@@ -19,7 +22,6 @@ function checkClick() {
     xml:space="preserve"
     width="24px"
     height="24px"
-    @click="checkClick"
   >
     <g>
       <rect

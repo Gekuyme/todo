@@ -1,7 +1,21 @@
 <script setup>
-// import ColoredCircle from "./ColoredCircle.vue";
-// let taskGroup = [];
-import sheduledIcon from "./icons/SheduleIcon.vue";
+import ColoredCircle from "./ColoredCircle.vue";
+import ChapterView from "./menu/ChapterView.vue";
+//create tasks group list
+const data = [
+  {
+    name: "Personal",
+    color: "#FD99AF",
+  },
+  {
+    name: "Freelance",
+    color: "#3FD4F4",
+  },
+  {
+    name: "Work",
+    color: "#FAC608",
+  },
+];
 </script>
 
 <!-- <div v-for="(item, index) in taskGroup" :key="index" class="">
@@ -20,27 +34,32 @@ import sheduledIcon from "./icons/SheduleIcon.vue";
     </div>
     <div class="todo_menu">
       <div class="todo_chapter">
-        <div class="chapter_group">
-          <img src="" alt="" class="chapter_icon" />
-          <p class="chapter_name">Today tasks</p>
-        </div>
-        <div class="chapter_list"></div>
-        <div class="chapter_create">
-          <img src="" alt="" class="create_icon" />
-          <p class="create_text">Add filter</p>
+        <chapter-view name="Today Tasks" icon="task"/>
+        <div class="chapter_list">
+          <div
+            class="chapter_create"
+            v-for="(item, index) in data"
+            :key="index"
+          >
+            <colored-circle :color="item.color" />
+            <p class="task_item">{{ item.name }}</p>
+          </div>
+          <div class="chapter_create">
+            <img
+              src="../assets/plus.png"
+              height="16"
+              alt="addIcon"
+              class="create_icon"
+            />
+            <p class="create_text">Add filter</p>
+          </div>
         </div>
       </div>
       <div class="todo_chapter">
-        <div class="chapter_group">
-          <sheduledIcon />
-          <p class="chapter_name">Sheduled tasks</p>
-        </div>
+        <chapter-view name="Sheduled tasks" icon="shedulde"/>
       </div>
       <div class="todo_chapter">
-        <div class="chapter_group">
-          <img src="" alt="" class="chapter_icon" />
-          <p class="chapter_name">Settings</p>
-        </div>
+        <chapter-view name="Settings" icon="settings"/>
       </div>
     </div>
   </div>
@@ -59,11 +78,28 @@ import sheduledIcon from "./icons/SheduleIcon.vue";
   width: 20px;
   height: 20px;
 }
-.chapter_group {
+
+.chapter_create {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  padding: 0px 10px;
-  gap: 20px;
+  gap: 10px;
+  cursor: pointer;
+  margin: 0px 0px 0px 75px;
+}
+.task_item {
+  font-weight: bold;
+}
+.create_text {
+  transition: all 1.175s cubic-bezier(0.075, 0.82, 0.165, 1);
+  color: rgb(174, 174, 174);
+}
+.chapter_create:hover .create_icon {
+  transform: scale(1.2);
+}
+.chapter_create:hover .create_text {
+  color: rgb(153, 153, 153);
+}
+.create_icon {
+  transition: all 1.175s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 </style>
