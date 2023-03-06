@@ -1,6 +1,7 @@
 <script setup>
 import ColoredCircle from "./ColoredCircle.vue";
 import ChapterView from "./menu/ChapterView.vue";
+import PersonView from "./menu/PersonView.vue";
 //create tasks group list
 const data = [
   {
@@ -16,6 +17,8 @@ const data = [
     color: "#FAC608",
   },
 ];
+
+//person info
 </script>
 
 <!-- <div v-for="(item, index) in taskGroup" :key="index" class="">
@@ -26,15 +29,14 @@ const data = [
 <template>
   <div class="todo">
     <div class="todo_person">
-      <img src="" alt="" />
-      <div class="person_info">
-        <!-- <p>{{ person.name }}</p> -->
+      <person-view />
+      <div class="todo_item">
+        <div class="segment"></div>
       </div>
-      <div class="segment"></div>
     </div>
     <div class="todo_menu">
       <div class="todo_chapter">
-        <chapter-view name="Today Tasks" icon="task"/>
+        <chapter-view name="Today Tasks" icon="task" />
         <div class="chapter_list">
           <div
             class="chapter_create"
@@ -56,16 +58,20 @@ const data = [
         </div>
       </div>
       <div class="todo_chapter">
-        <chapter-view name="Sheduled tasks" icon="shedulde"/>
+        <chapter-view name="Sheduled tasks" icon="shedulde" />
       </div>
       <div class="todo_chapter">
-        <chapter-view name="Settings" icon="settings"/>
+        <chapter-view name="Settings" icon="settings" />
       </div>
     </div>
   </div>
 </template>
 
 <style scoped>
+@font-face {
+  font-family: "Montserrat";
+  src: url("../assets/fonts/Montserrat-Regular.ttf");
+}
 .todo {
   min-height: 100vh;
   background-color: #fff;
@@ -73,6 +79,7 @@ const data = [
   border-bottom-right-radius: 17px;
   flex-basis: 15%;
   min-width: 235px;
+  font-family: "Montserrat", sans-serif;
 }
 .svg {
   width: 20px;
@@ -101,5 +108,22 @@ const data = [
 }
 .create_icon {
   transition: all 1.175s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.todo_person{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.todo_item{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.segment {
+  height: 3px;
+  width: 70%;
+  background-color: #ca8bfe;
+  margin: 2% 0 15% 0;
 }
 </style>

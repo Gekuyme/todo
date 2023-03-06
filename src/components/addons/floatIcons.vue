@@ -1,13 +1,9 @@
 <!-- Alpha Animations -->
 
-<script setup>
-</script>
+<script setup></script>
 
 <template>
-  <div class="icon">
-  </div>
+  <div class="icon"></div>
 </template>
 
-<style>
-
-</style>
+<style></style>

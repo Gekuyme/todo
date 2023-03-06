@@ -54,11 +54,14 @@ setIcon();
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: 0px 30px;
+  margin: 0px 30px;
   gap: 20px;
   cursor: pointer;
 }
 .chapter_group:hover .chapter_name {
   color: #ca8bfe;
+}
+.chapter_name {
+  font-weight: bold;
 }
 </style>

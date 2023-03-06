@@ -9,8 +9,8 @@ function changeColor() {
     : (color.value = "cl_passive");
 }
 defineExpose({
-  changeColor
-})
+  changeColor,
+});
 </script>
 <template>
   <svg
