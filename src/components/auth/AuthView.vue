@@ -1,4 +1,9 @@
-<script setup></script>
+<script setup>
+function redirect() {
+  let link = document.location.href;
+  document.location.href = link + "home";
+}
+</script>
 <template>
   <div class="view">
     <div class="view_item">
@@ -18,7 +23,7 @@
       <p class="view_text">Remember me</p>
     </div>
     <div class="view_item">
-      <button class="view_btn">Login</button>
+      <button class="view_btn" @click="redirect">Login</button>
     </div>
   </div>
 </template>
@@ -57,7 +62,7 @@
   cursor: pointer;
 }
 .view_btn:hover {
-  box-shadow: 0px 0px 15px 7px rgba(72, 72, 72, 0.200);
+  box-shadow: 0px 0px 15px 7px rgba(72, 72, 72, 0.2);
 }
 .input {
   width: 70%;
@@ -72,6 +77,6 @@
 }
 .input:focus {
   outline: 2px solid #ca8bfe;
-  box-shadow: 0px 0px 15px 7px rgba(72, 72, 72, 0.200);
+  box-shadow: 0px 0px 15px 7px rgba(72, 72, 72, 0.2);
 }
 </style>
