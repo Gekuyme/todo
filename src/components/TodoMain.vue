@@ -22,12 +22,17 @@ function onShowModal(val) {
 </template>
 
 <style scoped>
+@font-face {
+  font-family: "Montserrat";
+  src: url("../assets/fonts/Montserrat-Regular.ttf");
+}
 .main {
   flex-basis: 85%;
   padding: 100px 0 0 0;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  font-family: "Montserrat", sans-serif;
 }
 .task {
   animation: task 1.175s cubic-bezier(0.075, 0.82, 0.165, 1);

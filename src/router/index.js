@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
+import TodoDashboard from "../views/TodoDashboard.vue";
+import TodoAuth from "../views/TodoAuth.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -7,7 +8,12 @@ const router = createRouter({
     {
       path: "/",
       name: "home",
-      component: HomeView,
+      component: TodoDashboard,
+    },
+    {
+      path: "/auth",
+      name: "auth",
+      component: TodoAuth,
     },
   ],
 });

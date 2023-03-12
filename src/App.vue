@@ -1,19 +1,9 @@
-<script setup>
-import TodoMenu from "./components/TodoMenu.vue";
-import TodoMain from "./components/TodoMain.vue";
-</script>
+<script setup></script>
 
 <template>
   <main class="app">
-    <TodoMenu />
-    <TodoMain />
+    <router-view></router-view>
   </main>
 </template>
 
-<style scoped>
-.app {
-  min-height: 100vh;
-  background-color: #a18aff;
-  display: flex;
-}
-</style>
+<style scoped></style>

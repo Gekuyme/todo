@@ -109,13 +109,13 @@ const data = [
 .create_icon {
   transition: all 1.175s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
-.todo_person{
+.todo_person {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
 }
-.todo_item{
+.todo_item {
   width: 100%;
   display: flex;
   justify-content: center;
