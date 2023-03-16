@@ -1,17 +1,11 @@
 <script setup>
+import { storeToRefs } from "pinia";
+import { useTaskStore } from "../../stores/task";
 import TaskView from "./TaskView.vue";
-let data = [
-  {
-    name: "Working home",
-    color: "#FD99AF",
-    time: "15:30",
-  },
-  {
-    name: "Buy fruits",
-    color: "#3FD4F4",
-    time: "17:30",
-  },
-];
+const store = useTaskStore();
+const { tasks } = storeToRefs(store);
+let data = [];
+data = tasks;
 function show(val) {
   console.log(typeof val);
 }

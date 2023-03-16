@@ -19,6 +19,7 @@ const dataProps = defineProps({
   },
 });
 const data = computed(() => dataProps);
+console.log(data.value)
 </script>
 <template>
   <div class="task">

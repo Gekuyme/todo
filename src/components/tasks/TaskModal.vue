@@ -5,6 +5,7 @@ import checkAddon from "../addons/CheckAddon.vue";
 
 let selected = ref("Personal");
 let color = ref("#FD99AF");
+let time = ref();
 
 function selectedColor(val) {
   switch (val) {
@@ -24,12 +25,16 @@ function selectedColor(val) {
   console.log(selected.value);
 }
 
-const emit = defineEmits(["showmodal"]);
+const emit = defineEmits(["showModal", "createTask"]);
 
-function closeModal() {
+function createTask() {
   setTimeout(() => {
-    emit("showmodal", false);
+    emit("showModal", false);
   }, 775);
+  emit("createTask", {
+    time: time,
+    group: selected,
+  });
 }
 </script>
 
@@ -47,8 +52,8 @@ function closeModal() {
       <option value="Freelance" class="option">Freelance</option>
       <option value="Work" class="option">Work</option>
     </select>
-    <input type="time" class="time" />
-    <div class="close" @click="closeModal">
+    <input type="time" class="time" v-model="time" />
+    <div class="close" @click="createTask">
       <check-addon />
     </div>
   </div>

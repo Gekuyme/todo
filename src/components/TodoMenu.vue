@@ -60,9 +60,6 @@ const data = [
       <div class="todo_chapter">
         <chapter-view name="Sheduled tasks" icon="shedulde" />
       </div>
-      <div class="todo_chapter">
-        <chapter-view name="Settings" icon="settings" />
-      </div>
     </div>
   </div>
 </template>
@@ -80,6 +77,7 @@ const data = [
   flex-basis: 15%;
   min-width: 235px;
   font-family: "Montserrat", sans-serif;
+  padding: 0px 15px;
 }
 .svg {
   width: 20px;
@@ -92,6 +90,8 @@ const data = [
   gap: 10px;
   cursor: pointer;
   margin: 0px 0px 0px 75px;
+  border-right: 2px solid #fff;
+  transition: all 1.175s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 .task_item {
   font-weight: bold;
@@ -99,6 +99,9 @@ const data = [
 .create_text {
   transition: all 1.175s cubic-bezier(0.075, 0.82, 0.165, 1);
   color: rgb(174, 174, 174);
+}
+.chapter_create:hover {
+  border-right: 2px solid #ca8bfe;
 }
 .chapter_create:hover .create_icon {
   transform: scale(1.2);

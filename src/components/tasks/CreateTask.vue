@@ -1,8 +1,17 @@
 <script setup>
-const emit = defineEmits(["showmodal"]);
+import { ref } from "vue";
+const taskTitle = ref("");
+const emit = defineEmits(["showmodal", "pushText"]);
 function modal(val) {
   emit("showmodal", val);
 }
+function pushText() {
+  emit("pushText", taskTitle);
+  taskTitle.value = "";
+}
+defineExpose({
+  pushText,
+});
 </script>
 
 <template>
@@ -13,6 +22,7 @@ function modal(val) {
       placeholder="Create task..."
       @focus="modal(true)"
       @keyup.enter="modal()"
+      v-model="taskTitle"
     />
   </div>
 </template>
