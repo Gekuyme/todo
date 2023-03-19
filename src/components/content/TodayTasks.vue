@@ -11,7 +11,7 @@ let getText = ref();
 let task = {
   name: "",
   color: "",
-  time: "",
+  time: new Date(),
 };
 // eslint-disable-next-line no-unused-vars
 function onShowModal(val) {
@@ -25,7 +25,7 @@ function getTitle(data) {
 //take task color and time from child component and call child function to get task title
 function onCreateTask(data) {
   task.color = data.group.value;
-  task.time = data.time.value;
+  task.time = data.time;
   getText.value.pushText();
 }
 </script>

@@ -14,12 +14,12 @@ const dataProps = defineProps({
     required: true,
   },
   time: {
-    type: String,
+    type: Object,
     required: true,
   },
 });
 const data = computed(() => dataProps);
-console.log(data.value)
+console.log(data.value);
 </script>
 <template>
   <div class="task">

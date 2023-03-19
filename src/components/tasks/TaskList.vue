@@ -3,11 +3,11 @@ import { storeToRefs } from "pinia";
 import { useTaskStore } from "../../stores/task";
 import TaskView from "./TaskView.vue";
 const store = useTaskStore();
-const { tasks } = storeToRefs(store);
+const { filtredTasks } = storeToRefs(store);
 let data = [];
-data = tasks;
+data = filtredTasks;
 function show(val) {
-  console.log(typeof val);
+  console.log(val.color);
 }
 </script>
 <template>

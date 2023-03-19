@@ -1,30 +1,20 @@
 <script setup>
+import { ref } from "vue";
 import ColoredCircle from "./ColoredCircle.vue";
 import ChapterView from "./menu/ChapterView.vue";
 import PersonView from "./menu/PersonView.vue";
-//create tasks group list
-const data = [
-  {
-    name: "Personal",
-    color: "#FD99AF",
-  },
-  {
-    name: "Freelance",
-    color: "#3FD4F4",
-  },
-  {
-    name: "Work",
-    color: "#FAC608",
-  },
-];
-
-//person info
+import CreateGroup from "./menu/CreateGroup.vue";
+import { useGroupStore } from "../stores/group";
+import { storeToRefs } from "pinia";
+//get Task group list from Store
+const store = useGroupStore();
+const { group } = storeToRefs(store);
+const showGroup = ref(false);
+function onShowModal(el) {
+  showGroup.value = el;
+  console.log(el);
+}
 </script>
-
-<!-- <div v-for="(item, index) in taskGroup" :key="index" class="">
-  <colored-circle :color="item.color" />
-  <span>{{ item.name }}</span>
-</div> -->
 
 <template>
   <div class="todo">
@@ -40,7 +30,7 @@ const data = [
         <div class="chapter_list">
           <div
             class="chapter_create"
-            v-for="(item, index) in data"
+            v-for="(item, index) in group"
             :key="index"
           >
             <colored-circle :color="item.color" />
@@ -53,7 +43,12 @@ const data = [
               alt="addIcon"
               class="create_icon"
             />
-            <p class="create_text">Add filter</p>
+            <p class="create_text" @click="onShowModal(true)">Add group</p>
+            <create-group
+              v-if="showGroup"
+              class="task_group"
+              @show="onShowModal"
+            />
           </div>
         </div>
       </div>
@@ -128,5 +123,16 @@ const data = [
   width: 70%;
   background-color: #ca8bfe;
   margin: 2% 0 15% 0;
+}
+.task_group {
+  animation: TaskGroup 2.175s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+@keyframes TaskGroup {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 </style>
