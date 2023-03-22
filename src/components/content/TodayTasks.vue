@@ -57,7 +57,7 @@ function onCreateTask(data) {
   font-family: "Montserrat", sans-serif;
 }
 .task {
-  animation: task 1.175s cubic-bezier(0.075, 0.82, 0.165, 1);
+  animation: task 0.175s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 .task_modal {
   min-height: 50px;
@@ -65,7 +65,7 @@ function onCreateTask(data) {
 }
 @keyframes task {
   0% {
-    transform: translateY(-100px);
+    opacity: 0;
   }
 }
 </style>

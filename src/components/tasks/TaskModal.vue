@@ -33,7 +33,7 @@ function createTask() {
   console.log(date);
   setTimeout(() => {
     emit("showModal", false);
-  }, 775);
+  }, 175);
   emit("createTask", {
     time: date,
     group: color,
@@ -43,21 +43,25 @@ function createTask() {
 
 <template>
   <div class="modal">
-    <colored-circle :color="color" />
-    <select
-      name=""
-      id=""
-      class="dropdown"
-      v-model="selected"
-      @change="selectedColor(selected)"
-    >
-      <option value="Personal" class="option">Personal</option>
-      <option value="Freelance" class="option">Freelance</option>
-      <option value="Work" class="option">Work</option>
-    </select>
-    <input type="datetime-local" class="time" v-model="time" />
-    <div class="close" @click="createTask">
-      <check-addon />
+    <div class="modal_item">
+      <colored-circle :color="color" />
+      <select
+        name=""
+        id=""
+        class="dropdown"
+        v-model="selected"
+        @change="selectedColor(selected)"
+      >
+        <option value="Personal" class="option">Personal</option>
+        <option value="Freelance" class="option">Freelance</option>
+        <option value="Work" class="option">Work</option>
+      </select>
+    </div>
+    <div class="modal_item">
+      <input type="datetime-local" class="time" v-model="time" />
+      <div class="close" @click="createTask">
+        <check-addon />
+      </div>
     </div>
   </div>
 </template>
@@ -65,7 +69,8 @@ function createTask() {
 <style scoped>
 .modal {
   width: 50%;
-  min-width: 300px;
+  min-width: 420px;
+  max-width: 500px;
   height: 50px;
   background-color: white;
   position: relative;
@@ -103,5 +108,27 @@ function createTask() {
 }
 .close {
   cursor: pointer;
+}
+.modal_item {
+  display: flex;
+  gap: 10px;
+}
+@media screen and (max-width: 924px) {
+  .modal {
+    flex-direction: column;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+    min-width: 280px;
+    padding: 20px 0px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .modal {
+    top: 50%;
+    left: 50%;
+    transform: translate(-60%, -20%);
+  }
 }
 </style>

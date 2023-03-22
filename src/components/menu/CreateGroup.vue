@@ -32,20 +32,22 @@ function checkColor() {
 <style scoped>
 .group {
   width: 40%;
-  min-width: 300px;
+  min-width: 430px;
+  max-width: 600px;
   height: 150px;
   background-color: white;
   position: absolute;
   border-radius: 15px;
   top: 50%;
   left: 50%;
-  transform: translate(-30%, -50%);
+  transform: translate(-27%, -50%);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 20px;
 }
+
 .group_items {
   display: flex;
   justify-content: center;
@@ -87,4 +89,19 @@ function checkColor() {
   box-shadow: 0px 0px 15px 7px rgba(38, 38, 38, 0.2);
   transform: scale(1.02);
 }
+@media screen and (max-width: 1500px) {
+  .group {
+    top: 50%;
+    left: 50%;
+    transform: translate(-25%, -50%);
+  }
+}
+@media screen and (max-width: 1200px) {
+  .group {
+    top: 50%;
+    left: 50%;
+    transform: translate(-20%, -50%);
+  }
+}
+
 </style>

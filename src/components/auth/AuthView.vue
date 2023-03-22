@@ -1,5 +1,16 @@
 <script setup>
+import { ref } from "vue";
+import { useAuthStore } from "../../stores/auth";
+
+const store = useAuthStore();
+const login = ref();
+const password = ref();
+
 function redirect() {
+  store.createUser({
+    name: login,
+    password: password,
+  });
   let link = document.location.href;
   document.location.href = link + "home";
 }
@@ -13,10 +24,15 @@ function redirect() {
       <h1 class="view_title">Login</h1>
     </div>
     <div class="view_item">
-      <input type="text" class="input" placeholder="Login" />
+      <input type="text" class="input" placeholder="Login" v-model="login" />
     </div>
     <div class="view_item">
-      <input type="text" class="input" placeholder="Password" />
+      <input
+        type="password"
+        class="input"
+        placeholder="Password"
+        v-model="password"
+      />
     </div>
     <div class="view_item">
       <input type="checkbox" class="check" />

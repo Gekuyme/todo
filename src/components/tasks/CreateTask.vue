@@ -47,4 +47,10 @@ defineExpose({
   box-shadow: 0px 0px 15px 7px rgba(38, 38, 38, 0.2);
   transform: scale(1.02);
 }
+@media screen and (max-width: 500px) {
+  .task{
+    position: relative;
+    left: -15px;
+  }
+}
 </style>

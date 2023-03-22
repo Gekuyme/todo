@@ -1,19 +1,28 @@
 <script setup>
+import { storeToRefs } from "pinia";
 import avatar from "../../assets/avatar.webp";
-const person = {
-  name: "Garry",
-  img: avatar,
-};
+import { useAuthStore } from "../../stores/auth";
+const store = useAuthStore();
+const { user } = storeToRefs(store);
+function show() {
+  console.log(user.value);
+}
 </script>
 
 <template>
   <div class="person">
     <div class="person_item">
-      <img :src="person.img" alt="avatar" height="64" class="person_img" />
+      <img
+        :src="avatar"
+        alt="avatar"
+        height="64"
+        class="person_img"
+        @click="show"
+      />
     </div>
     <div class="person_item">
       <p class="person_title">Do-it</p>
-      <p class="person_name">{{ person.name }}</p>
+      <p class="person_name">{{ user.name }}</p>
     </div>
   </div>
 </template>

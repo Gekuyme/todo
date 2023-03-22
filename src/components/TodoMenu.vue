@@ -10,9 +10,21 @@ import { storeToRefs } from "pinia";
 const store = useGroupStore();
 const { group } = storeToRefs(store);
 const showGroup = ref(false);
+const modalClass = ref("task_group");
+const emit = defineEmits(["showMenu"]);
+
 function onShowModal(el) {
   showGroup.value = el;
+  if (el == true) {
+    modalClass.value += " group_active";
+  } else {
+    modalClass.value.replace("group_active", "");
+  }
   console.log(el);
+}
+
+function closeMenu() {
+  emit("showMenu", false);
 }
 </script>
 
@@ -22,6 +34,12 @@ function onShowModal(el) {
       <person-view />
       <div class="todo_item">
         <div class="segment"></div>
+        <img
+          src="../assets/close.png"
+          alt="close"
+          class="close"
+          @click="closeMenu"
+        />
       </div>
     </div>
     <div class="todo_menu">
@@ -46,7 +64,7 @@ function onShowModal(el) {
             <p class="create_text" @click="onShowModal(true)">Add group</p>
             <create-group
               v-if="showGroup"
-              class="task_group"
+              :class="modalClass"
               @show="onShowModal"
             />
           </div>
@@ -65,14 +83,24 @@ function onShowModal(el) {
   src: url("../assets/fonts/Montserrat-Regular.ttf");
 }
 .todo {
+  display: block;
   min-height: 100vh;
   background-color: #fff;
   border-top-right-radius: 17px;
   border-bottom-right-radius: 17px;
-  flex-basis: 15%;
-  min-width: 235px;
+  width: 310px;
+  overflow: hidden;
   font-family: "Montserrat", sans-serif;
   padding: 0px 15px;
+  animation: Showed 0.975s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+@keyframes Showed {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 310px;
+  }
 }
 .svg {
   width: 20px;
@@ -124,8 +152,19 @@ function onShowModal(el) {
   background-color: #ca8bfe;
   margin: 2% 0 15% 0;
 }
+.close {
+  display: none;
+  height: 16px;
+  width: 16px;
+  position: relative;
+  top: -90px;
+  left: 10%;
+}
 .task_group {
-  animation: TaskGroup 2.175s cubic-bezier(0.075, 0.82, 0.165, 1);
+  animation: TaskGroup 1.175s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.group_active {
+  box-shadow: 0px 0px 5000px 500px rgba(0, 0, 0, 0.55);
 }
 @keyframes TaskGroup {
   0% {
@@ -133,6 +172,11 @@ function onShowModal(el) {
   }
   100% {
     opacity: 1;
+  }
+}
+@media screen and (max-width: 750px) {
+  .close {
+    display: block;
   }
 }
 </style>
