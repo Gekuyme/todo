@@ -89,16 +89,17 @@ function closeMenu() {
   border-top-right-radius: 17px;
   border-bottom-right-radius: 17px;
   width: 310px;
-  overflow: hidden;
   font-family: "Montserrat", sans-serif;
   padding: 0px 15px;
   animation: Showed 0.975s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 @keyframes Showed {
   0% {
+    overflow: hidden;
     width: 0;
   }
   100% {
+    overflow: auto;
     width: 310px;
   }
 }
@@ -177,6 +178,9 @@ function closeMenu() {
 @media screen and (max-width: 750px) {
   .close {
     display: block;
+  }
+  .task_group{
+    
   }
 }
 </style>

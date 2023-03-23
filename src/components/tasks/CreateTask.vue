@@ -48,7 +48,7 @@ defineExpose({
   transform: scale(1.02);
 }
 @media screen and (max-width: 500px) {
-  .task{
+  .task {
     position: relative;
     left: -15px;
   }

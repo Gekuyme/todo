@@ -66,4 +66,12 @@ console.log(data.value);
   gap: 40px;
   margin-right: 5px;
 }
+@media screen and (max-width: 500px) {
+  .task {
+    width: 95%;
+    padding: 20px 3px;
+    position: relative;
+    left: -3%;
+  }
+}
 </style>

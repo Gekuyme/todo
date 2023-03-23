@@ -103,5 +103,52 @@ function checkColor() {
     transform: translate(-20%, -50%);
   }
 }
-
+@media screen and (max-width: 750px) {
+  .group {
+    min-width: 430px;
+    max-width: 600px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-30%, -50%);
+  }
+}
+@media screen and (max-width: 500px) {
+  .group {
+    height: 120px;
+    min-width: 250px;
+    max-width: 600px;
+    gap: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-30%, -50%);
+  }
+  .btn {
+    width: 90px;
+    border: 0;
+    font-size: 13px;
+    box-shadow: 7px 7px 10px 2px rgba(0, 0, 0, 0.25);
+    border-right: 2px solid #ca8bfe;
+    border-bottom: 2px solid #ca8bfe;
+  }
+  .group_name {
+    width: 40%;
+    height: 30px;
+    margin: 0px;
+    border-radius: 15px;
+    border: 0;
+    transition: all 1.175s cubic-bezier(0.075, 0.82, 0.165, 1);
+    padding: 5px 20px;
+  }
+  .group_color {
+    width: 30px;
+    height: 30px;
+  }
+}
+@media screen and (max-width: 390px) {
+  .group {
+    top: 50%;
+    left: 50%;
+    transform: translate(-45%, -50%);
+  }
+}
 </style>

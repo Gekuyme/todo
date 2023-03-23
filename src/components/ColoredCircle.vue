@@ -16,6 +16,8 @@ let color = computed(() => "background-color:" + defineColor.color + ";");
 .circle {
   width: 16px;
   height: 16px;
+  min-width: 16px;
+  min-height: 16px;
   border-radius: 100%;
   border: 0px;
 }
